@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xmlns:context="http://www.springframework.org/schema/context"
@@ -7,7 +7,7 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
     
-    <bean id="e1" class="com.excelr.model.Engine">
+    <bean id="e1" class="com.excelr.model.Engine" name="engine">
     <constructor-arg value="2000"></constructor-arg>
     <constructor-arg value="2.0"></constructor-arg>
     <constructor-arg value="Honda"></constructor-arg>
@@ -32,4 +32,42 @@
     </property>
     </bean>
 
+	<bean id="g1" class="com.excelr.model.Gear" name="gear">
+    <constructor-arg value="6"></constructor-arg>
+    <constructor-arg value="Honda"></constructor-arg>
+    <constructor-arg value="Manual"></constructor-arg>
+    </bean>
+    
+    <bean id="g2" class="com.excelr.model.Gear">
+    <property name="gearLever">
+    <value>8</value>
+    </property>
+    
+    <property name="gearMfg">
+    <value>Tata</value>
+    </property>
+    
+    <property name="gearType">
+    <value>Automatic</value>
+    </property>
+    </bean>
+    
+    <bean id="c1" class="com.excelr.model.Car" scope="prototype">
+    <constructor-arg value="Honda"></constructor-arg>
+    <constructor-arg value="City"></constructor-arg>
+    <constructor-arg value="White"></constructor-arg>
+    <constructor-arg value="100.0"></constructor-arg>
+    <constructor-arg ref="e1"></constructor-arg>
+    <constructor-arg ref="g1"></constructor-arg>
+    </bean>
+    
+    
+    <bean id="c2" class="com.excelr.model.Car" autowire="byName">
+    <constructor-arg value="Audi"></constructor-arg>
+    <constructor-arg value="Q3"></constructor-arg>
+    <constructor-arg value="White"></constructor-arg>
+    <constructor-arg value="500.0"></constructor-arg>
+    </bean>
 </beans>
+
+ -->

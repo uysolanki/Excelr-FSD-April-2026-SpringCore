@@ -1,5 +1,8 @@
 package com.excelr.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 public class Car {
 
 	private String carMfg;
@@ -7,19 +10,32 @@ public class Car {
 	private String carColor;
 	private double carPrice;
 	
+	@Autowired
+	@Qualifier("e1")
 	private Engine engine;		//dependency
+	
+	@Autowired
+	@Qualifier("g1")
 	private Gear gear;
 	
 	public Car() {}
 								//Injecting Dependency using Constructor - CDI
 	public Car(String carMfg, String carModel, String carColor, double carPrice, Engine engine, Gear gear) {
-		super();
 		this.carMfg = carMfg;
 		this.carModel = carModel;
 		this.carColor = carColor;
 		this.carPrice = carPrice;
 		this.engine = engine;
 		this.gear = gear;
+		
+		System.out.println("All Args Constructor of the Car class invoked");
+	}
+	
+	public Car(String carMfg, String carModel, String carColor, double carPrice) {
+		this.carMfg = carMfg;
+		this.carModel = carModel;
+		this.carColor = carColor;
+		this.carPrice = carPrice;
 	}
 
 	
