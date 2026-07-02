@@ -1,13 +1,15 @@
 package com.excelr.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import com.excelr.model.Car;
 import com.excelr.model.Engine;
 import com.excelr.model.Gear;
 
-@Configuration   //the class which contains config info and not business logic
+@Configuration   	//the class which contains config info and not business logic
+@ComponentScan(basePackages = "com.excelr.model")
 public class MyBeansConExcelR 
 {
 	@Bean(name="e1")
